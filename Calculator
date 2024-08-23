@@ -1,0 +1,104 @@
+import java.awt.*;
+import java.awt.Frame;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+public class calculator extends Frame {
+    calculator() {
+        Frame frame = new Frame("Calculator");
+        Label I1 = new Label("Input 1");
+        I1.setBounds(50, 130, 100, 30);
+        TextField In = new TextField();
+        In.setBounds(160, 130, 150, 25);
+        Label I2 = new Label("Input 2");
+        I2.setBounds(50, 170, 100, 30);
+        TextField Inn = new TextField();
+        Inn.setBounds(160, 170, 150, 25);
+//
+        Button bn = new Button("+");
+        bn.setBounds(100, 300, 50, 27);
+
+        Button bn1 = new Button("-");
+        bn1.setBounds(200, 300, 50, 27);
+
+        Button bn2 = new Button("*");
+        bn2.setBounds(300, 300, 50, 27);
+
+        Button bn3 = new Button("*");
+        bn3.setBounds(300, 300, 50, 27);
+
+        Button bn4 = new Button("/");
+        bn4.setBounds(400, 300, 50, 27);
+
+        Label I3 = new Label("Result");
+        I3.setBounds(50, 210, 100, 30);
+        TextField Innn = new TextField();
+        Innn.setBounds(160, 210, 150, 25);
+
+        frame.add(I1);
+        frame.add(In);
+        frame.add(I2);
+        frame.add(Inn);
+        frame.add(bn);
+        frame.add(bn1);
+        frame.add(bn2);
+        frame.add(bn3);
+        frame.add(bn4);
+        frame.add(I3);
+        frame.add(Innn);
+        frame.setLayout(null);
+        frame.setVisible(true);
+        frame.setSize(500, 500);
+
+        ActionListener s = new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                String a = In.getText();//TextField l1
+                String b = Inn.getText();
+
+                int d = Integer.parseInt(a);
+                int f = Integer.parseInt(b);
+                int c = 0;
+
+                if (e.getSource() == bn) {
+                    c = d + f;
+                } else if (e.getSource() == bn1) {
+                    c = d - f;
+                } else if (e.getSource() == bn2) {
+                    c = d * f;
+                } else if (e.getSource() == bn3) {
+                    c = d / f;
+                }
+                System.out.println(c);
+                String res = String.valueOf(c);
+
+                Innn.setText(res);
+            }
+
+        };
+
+        bn.addActionListener(s);
+        bn1.addActionListener(s);
+        bn2.addActionListener(s);
+        bn3.addActionListener(s);
+
+        frame.add(I1);
+        frame.add(In);
+        frame.add(I2);
+        frame.add(Inn);
+//        frame.add(I3);
+//        frame.add(Innn);
+        frame.add(bn);
+        frame.add(bn1);
+        frame.add(bn2);
+        frame.add(bn3);
+        frame.add(bn4);
+        frame.add(I3);
+        frame.add(Innn);
+        frame.setLayout(null);
+        frame.setVisible(true);
+        frame.setSize(500, 500);
+    }
+
+    public static void main(String args[]) {
+        new calculator();
+    }
+}
